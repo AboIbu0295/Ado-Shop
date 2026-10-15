@@ -67,8 +67,7 @@
             <span class="icon-placeholder">🔍</span>
             <span class="icon-placeholder">👤</span>
             <!-- La bolsita ahora tiene un enlace directo a esta página -->
-            <a href="carrito.html" style="text-decoration: none; color: inherit;"><span class="icon-placeholder" id="contenedor-bolsa">👜</span></a>
-        </div>
+            <span class="icon-placeholder" id="contenedor-bolsa">👜</span>        </div>
     </header>
 
     <!-- 3. Barra azul de anuncios -->
@@ -145,21 +144,27 @@
         };
     </script>
     <script>
-        // Al cargar la página, revisamos la memoria secreta del navegador
+        // 1. Forzamos al navegador a leer la memoria apenas abra la página
         var cantidadGuardada = localStorage.getItem("cantidadCarrito");
         var contenedorContenido = document.getElementById("contenido-carrito");
         var bolsaCabecera = document.getElementById("contenedor-bolsa");
 
-        // Si la memoria tiene datos, borramos el "carrito vacío" y sumamos los productos
+        // 2. Si hay productos guardados, transformamos la vista
         if (cantidadGuardada && parseInt(cantidadGuardada) > 0) {
             
+            // Colocamos la burbuja roja con el número también en la bolsa de esta página
             if (bolsaCabecera) {
                 bolsaCabecera.innerHTML = '👜<span class="contador-carrito">' + cantidadGuardada + '</span>';
             }
 
-            contenedorContenido.innerHTML = '<h1>Tu carrito tiene ' + cantidadGuardada + ' producto(s)</h1>' +
-                                              '<p style="margin-bottom: 30px; color: #b3b3b3;">Has seleccionado la edición de Ado’s Utattemita Album 2.</p>' +
-                                              '<a href="paginaweb.html" class="boton-continuar-compra">Continuar comprando</a>';
+            // Cambiamos el estilo para que se limpie el diseño viejo de "vacío"
+            contenedorContenido.className = "contenedor-carrito-lleno";
+
+            // Inyectamos los nuevos textos con la cantidad exacta sumada
+            contenedorContenido.innerHTML = 
+                '<h1 style="font-size: 36px; margin-bottom: 20px;">Tu carrito tiene (' + cantidadGuardada + ') producto(s)</h1>' +
+                '<p style="color: #b3b3b3; margin-bottom: 40px; font-size: 15px;">Has seleccionado la edición de Ado’s Utattemita Album 2.</p>' +
+                '<a href="paginaweb.html" class="boton-continuar-compra" style="display: inline-block; background-color: #2f5dd7; color: white; text-decoration: none; padding: 14px 30px; font-weight: bold;">Continuar comprando</a>';
         }
     </script>
 </body>
