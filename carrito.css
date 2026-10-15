@@ -55,6 +55,15 @@
     color: #cccccc;
 }
 
+.contenedor-carrito-lleno {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+
 /* Ajuste móvil simple */
 @media (max-width: 768px) {
     .contenedor-carrito-vacio {
