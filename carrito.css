@@ -1,0 +1,67 @@
+/* ==========================================
+   ESTILOS EXCLUSIVOS DE LA PÁGINA DEL CARRITO
+   ========================================== */
+.contenedor-carrito-vacio {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center; /* Centra todo el contenido como el original */
+    font-family: sans-serif;
+}
+
+.contenedor-carrito-vacio h1 {
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+/* Botón Azul de Continuar Comprando */
+.boton-continuar-compra {
+    display: inline-block;
+    background-color: #2f5dd7;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-bottom: 60px;
+}
+
+.boton-continuar-compra:hover {
+    background-color: #1e4bb8;
+}
+
+/* Bloque inferior de Cuenta de Usuario */
+.seccion-cuenta-carrito h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.seccion-cuenta-carrito p {
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.seccion-cuenta-carrito a {
+    color: #ffffff;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.seccion-cuenta-carrito a:hover {
+    color: #cccccc;
+}
+
+/* Ajuste móvil simple */
+@media (max-width: 768px) {
+    .contenedor-carrito-vacio {
+        margin: 60px auto;
+    }
+    
+    .contenedor-carrito-vacio h1 {
+        font-size: 28px;
+    }
+}
