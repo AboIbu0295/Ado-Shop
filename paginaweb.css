@@ -1,0 +1,407 @@
+/* ==========================================
+   1. ESTILOS GENERALES Y BASE
+   ========================================== */
+body {
+    background-color: #111111; 
+    color: #ffffff; 
+    font-family: sans-serif; /* Tipografía limpia idéntica a la tienda oficial */
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Evita espacios vacíos extraños debajo de las imágenes */
+}
+
+/* ==========================================
+   2. BARRAS DE ANUNCIOS Y CABECERA
+   ========================================== */
+/* Barra gris superior japonesa */
+.aviso-top {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px 0;
+    letter-spacing: 0.5px;
+}
+
+/* Contenedor principal de la cabecera */
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #000000;
+    border-bottom: 1px solid #222222;
+    position: relative;
+    position: sticky;   /* Hace que se quede pegado al hacer scroll */
+    top: 0;             /* Lo clava exactamente en el techo de la pantalla */
+    z-index: 1000;
+}
+
+/* Botón de tres líneas (Oculto en computadoras) */
+.menu-hamburguesa {
+    display: none; 
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10; /* Se asegura de quedar por encima al presionar */
+}
+
+/* Control del tamaño del logo de Ado */
+.logo img {
+    height: 35px;
+    width: auto;
+    display: block;
+}
+
+/* Enlaces del menú central */
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    color: #b3b3b3; /* Tono grisáceo elegante original */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    transition: color 0.2s;
+}
+
+.menu a:hover, .menu a.active {
+    color: #ffffff; /* Brilla en blanco en Hover */
+    text-decoration: underline; /* Subrayado simple original */
+}
+
+/* Bloque derecho (Moneda e iconos) */
+.cabecera-derecha {
+    color: #ffffff;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-placeholder {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Barra morada/azul inferior (Anuncio del álbum) */
+.barra-anuncio {
+    background-color: #1c1d2e; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 40px;
+    font-size: 12px;
+}
+
+.barra-anuncio p {
+    margin: 5px 0;
+}
+
+.barra-anuncio span {
+    cursor: pointer;
+    color: #888888;
+}
+
+/* ==========================================
+   3. BANNER PRINCIPAL Y SECCIONES
+   ========================================== */
+.banner img {
+    width: 100%;
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   4. GRILLA DE PRODUCTOS INTERACTIVA
+   ========================================== */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+/* Tarjeta individual de producto */
+.productos article {
+    width: 250px; 
+    flex-shrink: 0; 
+    text-align: center; /* Todo el texto va centrado */
+    cursor: pointer;
+}
+
+/* Forzar que las imágenes mantengan su encuadre al crecer */
+.productos article img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Animación fluida para el acercamiento */
+}
+
+.productos article h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 15px 0 8px 0;
+    line-height: 1.4;
+    position: relative;
+    display: inline-block;
+}
+
+/* Línea blanca animada debajo del texto en las tarjetas */
+.productos article h3::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffffff;
+    transition: transform 0.25s ease-out;
+}
+
+.productos article p {
+    font-size: 14px;
+    color: #cccccc;
+    margin: 8px 0 0 0;
+}
+
+/* --- EFECTO HOVER EN PRODUCTOS --- */
+/* Cuando el puntero toca la mercancía, la imagen se acerca y sale la línea */
+.productos article:hover img {
+    transform: scale(1.04); 
+}
+
+.productos article:hover h3::after {
+    transform: scaleX(1);
+}
+
+/* ==========================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #000000;
+    font-size: 12px;
+    color: #888888;
+    margin-top: 60px;
+}
+
+/* --- NUEVOS ESTILOS PARA LOS MENÚS DESPLEGABLES (DROPDOWN) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Caja contenedora de la lista (Oculta por defecto) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a; /* Fondo gris oscuro idéntico al de tu foto */
+    min-width: 280px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    z-index: 2000; /* Se asegura de quedar por encima de los banners */
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+}
+
+/* Enlaces individuales dentro del submenú */
+.dropdown-content a {
+    color: #cccccc !important;
+    padding: 10px 20px;
+    text-decoration: none !important;
+    display: block;
+    font-size: 13px;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Efecto hover para las opciones de la lista */
+.dropdown-content a:hover {
+    background-color: #2a2a2a;
+    color: #ffffff !important;
+}
+
+
+/* ==========================================
+   6. DISEÑO RESPONSIVO (PANTALLA A LA MITAD / MÓVIL)
+   ========================================== */
+@media (max-width: 768px) {
+    .cabecera {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #000000;
+        border-bottom: 1px solid #1a1a1a; 
+    }
+
+    /* Muestra las 3 líneas del menú hamburguesa */
+    .menu-hamburguesa {
+        display: block; 
+        font-size: 28px;
+    }
+
+    /* Esconde el menú de texto normal para que controle JavaScript */
+    .menu {
+        display: none; /* JavaScript se encarga de cambiarlo a flex al hacer clic */
+        position: fixed; /* Se clava cubriendo toda la pantalla */
+        top: 95px; /* Se posiciona justo debajo de la barra negra del logo */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 95px); /* Toma todo el alto restante de la pantalla */
+        background-color: #111111; /* Fondo oscuro uniforme original */
+        flex-direction: column;
+        gap: 0; /* Quitamos el espacio libre para usar bordes divisores */
+        padding: 0;
+        z-index: 1500;
+        overflow-y: auto; /* Permite hacer scroll interno si el menú es muy largo */
+    }
+
+    /* Enlaces del menú en formato de lista expandida */
+    .menu a, .menu .dropdown-toggle {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 24px;
+        text-align: left;
+        font-size: 16px; /* Letra un poco más grande como el original */
+        color: #ffffff;
+        border-bottom: 1px solid #222222; /* Línea divisoria sutil */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    /* Estilo específico para los contenedores dropdown en móvil */
+    .menu .dropdown {
+        width: 100%;
+        display: block;
+    }
+
+    /* Ocultamos las listas flotantes de PC en la vista móvil por ahora */
+    .menu .dropdown-content {
+        position: relative;
+        box-shadow: none;
+        background-color: #1a1a1a;
+        width: 100%;
+        display: none; /* Se mantiene oculto hasta que hagamos la interacción móvil */
+    }
+
+        /* AGREGA ESTO AL FINAL DE TU @MEDIA (MAX-WIDTH: 768PX) */
+    .menu .arrow { display: inline-block; } /* Oculta la flecha de PC en móvil */
+    .mobile-arrow { font-size: 14px; color: #888888; display: block; }
+
+    /* Estilo gris oscuro para las barras de regreso ← Music y ← Merch */
+    .menu .mobile-back {
+        background-color: #1a1a1a;
+        font-weight: bold;
+        border-bottom: 1px solid #333333;
+    }
+
+    /* Regla maestra: despliega el submenú de lado a lado cuando se activa */
+    .menu .dropdown-content.active-submenu {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed; /* Cambiado a fixed para tomar control total */
+        top: 95px;       /* Se alinea abajo de la franja negra del logo */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 95px); /* Tapa todo el fondo negro sólido */
+        background-color: #111111;  
+        z-index: 2000;              /* Se pone por encima de Home, Merch y Help */
+        overflow-y: auto;           /* Te permite bajar con el dedo en la lista */
+        padding: 0;
+    }
+    
+    /* Clava el logotipo de Ado exactamente en el centro */
+    .logo {
+        margin: 0 auto; /* Centra el logo de forma segura sin pisar texto */
+    }
+
+
+    .logo img {
+        height: 48px;
+    }
+
+    /* Oculta el texto de Perú/Moneda para dar espacio a los iconos */
+    .currency-text {
+        display: none;
+    }
+    
+    .cabecera-derecha {
+        gap: 18px;
+    }
+
+    .icon-placeholder {
+        font-size: 24px;
+    }
+
+    /* Los productos se acomodan perfectamente en filas de dos en dos */
+    .productos article {
+        width: 43%;
+        box-sizing: border-box;
+    }
+}
+
+/* AGREGA ESTO AL FINAL DE TODO TU ARCHIVO CSS */
+@media (min-width: 769px) {
+    #menu-navegacion {
+        display: flex !important; 
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* 👇 METE ESTAS DOS NUEVAS REGLAS AQUÍ ADENTRO */
+    .menu .mobile-back {
+        display: none !important; /* Esconde el "← Music" y "← Merch" en computadoras */
+    }
+
+    .mobile-arrow {
+        display: none !important; /* Esconde la flechita "→" lateral en computadoras */
+    }
+}
+
+#contenedor-bolsa {
+    position: relative;
+    display: inline-block;
+}
+
+.contador-carrito {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #ff3b30; /* Círculo rojo de alerta */
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-sizing: border-box;
+}

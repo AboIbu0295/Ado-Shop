@@ -1,0 +1,115 @@
+/* ==========================================
+   ESTILOS EXCLUSIVOS DE LA PÁGINA DE CONTACTO
+   ========================================== */
+.contenedor-contacto {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+.contenedor-contacto h1 {
+    font-size: 40px;
+    font-weight: normal;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.texto-informativo p {
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.texto-informativo a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.texto-informativo ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.texto-informativo ul li {
+    color: #b3b3b3;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.contenedor-contacto h2 {
+    text-align: left;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+/* Estilos de las cajas del formulario */
+.formulario-contacto .campo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-contacto label {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-bottom: 8px;
+}
+
+.formulario-contacto input[type="text"],
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
+    background-color: #111111;
+    border: 1px solid #444444;
+    color: #ffffff;
+    padding: 12px 15px;
+    font-size: 15px;
+    font-family: sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    border-color: #ffffff;
+}
+
+/* Fila doble superior (Nombre y Email) */
+.fila-input {
+    display: flex;
+    gap: 20px;
+}
+
+.fila-input .campo {
+    flex: 1;
+}
+
+/* Botón azul oficial de enviar */
+.boton-enviar {
+    background-color: #2f5dd7;
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+    display: block;
+}
+
+.boton-enviar:hover {
+    background-color: #1e4bb8;
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 600px) {
+    .fila-input {
+        flex-direction: column;
+        gap: 0;
+    }
+}
