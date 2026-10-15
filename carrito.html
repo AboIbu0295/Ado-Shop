@@ -79,12 +79,9 @@
     </div>
 
     <!-- 4. Contenido Central del Carrito Vacío -->
-    <main class="contenedor-carrito-vacio">
+    <main class="contenedor-carrito-vacio" id="contenido-carrito">
         <h1>Tu carrito está vacío</h1>
-        
-        <!-- Botón azul oficial para regresar a la tienda -->
         <a href="paginaweb.html" class="boton-continuar-compra">Continuar comprando</a>
-
         <div class="seccion-cuenta-carrito">
             <h2>¿Tienes una cuenta?</h2>
             <p><a href="#">Acceso</a> para pagar más rápido.</p>
@@ -147,6 +144,23 @@
             submenuMerch.classList.remove("active-submenu");
         };
     </script>
+    <script>
+        // Al cargar la página, revisamos la memoria secreta del navegador
+        var cantidadGuardada = localStorage.getItem("cantidadCarrito");
+        var contenedorContenido = document.getElementById("contenido-carrito");
+        var bolsaCabecera = document.getElementById("contenedor-bolsa");
 
+        // Si la memoria tiene datos, borramos el "carrito vacío" y sumamos los productos
+        if (cantidadGuardada && parseInt(cantidadGuardada) > 0) {
+            
+            if (bolsaCabecera) {
+                bolsaCabecera.innerHTML = '👜<span class="contador-carrito">' + cantidadGuardada + '</span>';
+            }
+
+            contenedorContenido.innerHTML = '<h1>Tu carrito tiene ' + cantidadGuardada + ' producto(s)</h1>' +
+                                              '<p style="margin-bottom: 30px; color: #b3b3b3;">Has seleccionado la edición de Ado’s Utattemita Album 2.</p>' +
+                                              '<a href="paginaweb.html" class="boton-continuar-compra">Continuar comprando</a>';
+        }
+    </script>
 </body>
 </html>
