@@ -66,7 +66,9 @@
             <span class="language-text">English <span class="arrow">⌵</span></span>
             <span class="icon-placeholder">🔍</span>
             <span class="icon-placeholder">👤</span>
-            <a href="carrito.html" style="text-decoration: none; color: inherit;"><span class="icon-placeholder" id="contenedor-bolsa">👜</span></a>
+            <a href="carrito.html">
+                <span class="icon-placeholder" id="contenedor-bolsa">👜</span>
+            </a>
         </div>
     </header>
 
@@ -209,14 +211,17 @@
             }
         };
 
-        // 3. Control de añadir al carrito y guardar en la memoria localStorage
-        btnCarrito.onclick = function() {
+       btnCarrito.onclick = function() {
             var unidadesCompradas = parseInt(inputCantidad.value);
             
-            // Reemplaza el icono de la bolsa con el número encima en la cabecera
+            // Dibuja la burbuja roja en la cabecera actual
             contenedorBolsa.innerHTML = '👜<span class="contador-carrito">' + unidadesCompradas + '</span>';
             
-            // Guardamos el número de unidades en la memoria del navegador
+            // 🌟 TRUCO CLAVE: Buscamos el enlace <a> que envuelve a la bolsa y le inyectamos la cantidad en la URL
+            var enlaceBolsa = contenedorBolsa.parentElement;
+            enlaceBolsa.href = "carrito.html?cantidad=" + unidadesCompradas;
+            
+            // También lo dejamos guardado en la memoria por si acaso
             localStorage.setItem("cantidadCarrito", unidadesCompradas);
             
             // Alerta clásica de confirmación
